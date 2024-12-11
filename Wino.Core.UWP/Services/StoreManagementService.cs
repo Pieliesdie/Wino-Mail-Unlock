@@ -28,24 +28,7 @@ namespace Wino.Core.UWP.Services
 
         public async Task<bool> HasProductAsync(StoreProductType productType)
         {
-            var productKey = productIds[productType];
-            var appLicense = await CurrentContext.GetAppLicenseAsync();
-
-            if (appLicense == null)
-                return false;
-
-            // Access the valid licenses for durable add-ons for this app.
-            foreach (KeyValuePair<string, StoreLicense> item in appLicense.AddOnLicenses)
-            {
-                StoreLicense addOnLicense = item.Value;
-
-                if (addOnLicense.InAppOfferToken == productKey)
-                {
-                    return addOnLicense.IsActive;
-                }
-            }
-
-            return false;
+            return true;
         }
 
         public async Task<Domain.Enums.StorePurchaseResult> PurchaseAsync(StoreProductType productType)

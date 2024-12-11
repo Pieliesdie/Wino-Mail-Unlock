@@ -79,19 +79,7 @@ namespace Wino.Core.ViewModels
         [RelayCommand]
         public async Task PurchaseUnlimitedAccountAsync()
         {
-            var purchaseResult = await StoreManagementService.PurchaseAsync(StoreProductType.UnlimitedAccounts);
 
-            if (purchaseResult == StorePurchaseResult.Succeeded)
-                DialogService.InfoBarMessage(Translator.Info_PurchaseThankYouTitle, Translator.Info_PurchaseThankYouMessage, InfoBarMessageType.Success);
-            else if (purchaseResult == StorePurchaseResult.AlreadyPurchased)
-                DialogService.InfoBarMessage(Translator.Info_PurchaseExistsTitle, Translator.Info_PurchaseExistsMessage, InfoBarMessageType.Warning);
-
-            bool shouldRefreshPurchasePanel = purchaseResult == StorePurchaseResult.Succeeded || purchaseResult == StorePurchaseResult.AlreadyPurchased;
-
-            if (shouldRefreshPurchasePanel)
-            {
-                await ManageStorePurchasesAsync();
-            }
         }
 
         public async void Receive(ProtocolAuthorizationCallbackReceived message)

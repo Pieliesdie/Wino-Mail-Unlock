@@ -20,7 +20,7 @@
 	
   <Identity
     Name="58272BurakKSE.WinoMailPreview"
-    Publisher="CN=bkaan"
+    Publisher="CN=haket"
     Version="1.9.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="0f6f3c1b-6ffd-4212-9c91-a16e8d1fa437" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
